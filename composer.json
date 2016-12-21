@@ -1,5 +1,8 @@
 {
     "name": "nextdots/api-exceptions",
+    "description": "JSON exceptions for your API",
+    "keywords": ["api", "exceptions", "laravel", "lumen"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Juan Eugenio Abadie",
