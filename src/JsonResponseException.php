@@ -11,10 +11,10 @@ class JsonResponseException extends RuntimeException
     public function __construct(int $code, string $message, string $description=NULL, array $errors=[])
     {
         $this->body = [
-          "code" => $code,
-          "message" => $message,
-          "description" => $description,
-          "errors" => $errors
+            "code" => $code,
+            "message" => $message,
+            "description" => $description,
+            "errors" => $errors
         ];
     }
 
