@@ -8,7 +8,7 @@ class JsonResponseException extends RuntimeException
 {
     protected $body;
 
-    public function __construct(int $code, string $message, string $description="", array $errors=[])
+    public function __construct(int $code, string $message, string $description=NULL, array $errors=[])
     {
         $this->body = [
           "code" => $code,
