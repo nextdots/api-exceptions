@@ -15,6 +15,28 @@ use ApiExceptions\JsonResponseException;
 
 class Handler extends ExceptionHandler
 {
+    /**
+     * The errors.
+     *
+     * @var array
+     */
+    private $errors;
+
+    /**
+     * Description for exception.
+     *
+     * @var string
+     */
+    private $description;
+
+
+    public function __construct()
+    {
+      $this->errors = [];
+
+      $this->description = null;
+    }
+
     public function render($request, Exception $e)
     {
         if ($e instanceof JsonResponseException)
@@ -55,6 +77,6 @@ class Handler extends ExceptionHandler
             }
         }
 
-        return (new JsonResponseException($code, $content))->getJsonResponse();
+        return (new JsonResponseException($code, $content, $this->description, $this->errors))->getJsonResponse();
     }
 }
