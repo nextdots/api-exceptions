@@ -60,6 +60,8 @@ class Handler extends ExceptionHandler
         }
         elseif ($e instanceof ValidationException && $e->getResponse())
         {
+            $errors = json_decode($e->getResponse()->getContent());
+            $this->errors = json_decode(json_encode($errors), true);
             $code = 422;
         }
         // add more cases here
