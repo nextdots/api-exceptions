@@ -52,8 +52,7 @@ class Handler extends ExceptionHandler
         } elseif ($e instanceof AuthorizationException) {
             $code = 403;
         } elseif ($e instanceof ValidationException && $e->getResponse()) {
-            $errors = json_decode($e->getResponse()->getContent());
-            $this->errors = json_decode(json_encode($errors), true);
+            $this->errors = collect(json_decode($e->getResponse()->getContent()))->toArray();
             $code = 422;
         }
         // add more cases here
